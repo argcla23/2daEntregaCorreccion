@@ -16,13 +16,14 @@ function App() {
       <ItemListContainer
         texto="Bienvenido amante del automotor"/>
       }/>
-
-      <Route path='/item' element ={<ItemDetailContainer/>}/>
+      <Route path='/categoria/:categoriaID' element={<ItemListContainer
+        texto="Tu Seleccion"/>}/>
+      <Route path='/item/:id' element ={<ItemDetailContainer/>}/>
        
 
 
       </Routes>
-      <ItemDetailContainer/>
+      
       </BrowserRouter>
       
       )

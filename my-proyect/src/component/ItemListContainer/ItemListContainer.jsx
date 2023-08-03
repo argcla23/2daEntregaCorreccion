@@ -3,19 +3,30 @@ import { useState } from "react";
 
 import ItemList from "../ItemList/ItemList";
 import { getProduct } from "../../mock/data";
+import { useParams } from "react-router-dom";
+
 
 
 const ItemListContainer = (propiedades) => {
-    const [productos, SetProductos] =useState ([])
+    const [productos, setProductos] =useState ([])
+    const {categoriaID}=useParams()
   
 
 
     useEffect(()=>{
         getProduct()
-        .then((res)=>{SetProductos(res)})
+        .then((res)=>{
+            if (categoriaID) {
+                setProductos(res.filter((Item)=> Item.categoria === categoriaID))
+
+            }
+            else{
+                setProductos(res)
+            }
+        })
         .catch((error) => console.log(error))
     
-    })
+    },[categoriaID])
    
     
     return (

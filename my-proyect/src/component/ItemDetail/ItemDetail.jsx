@@ -4,7 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 
 
 
-const ItemDetail = () => {
+const ItemDetail = (producto) => {
     
     const onAdd = (cantidad )=> {console.log('compraste',cantidad)}
     return (
@@ -19,12 +19,12 @@ const ItemDetail = () => {
           </Card.Text>
           <Card.Text>
             {producto.precio}
-            
           </Card.Text>
-          <ItemCount stock ={producto.stock} onAdd={onAdd} /> 
+          <ItemCount stock ={producto.stock} onAdd={onAdd} />
           <Button variant="primary">Ver Mas</Button>
         </Card.Body>
-      </Card>
+        </Card>
+         
     );
   }
 
