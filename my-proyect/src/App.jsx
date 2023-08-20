@@ -2,6 +2,9 @@ import NavBar from './component/NavBar'
 import ItemListContainer from './component/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { CartProvider } from './context/cartContext'
+import Cart from './component/cart/cart'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -9,6 +12,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 function App() {
 
   return (
+    <CartProvider>
     <BrowserRouter>
       <NavBar />
       <Routes>
@@ -19,13 +23,13 @@ function App() {
       <Route path='/categoria/:categoriaID' element={<ItemListContainer
         texto="Tu Seleccion"/>}/>
       <Route path='/item/:id' element ={<ItemDetailContainer/>}/>
-       
+       <Route path='/cart' element={<Cart/>}/>
 
 
       </Routes>
       
       </BrowserRouter>
-      
+      </CartProvider>
       )
 }
 

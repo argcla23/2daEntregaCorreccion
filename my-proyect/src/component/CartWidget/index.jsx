@@ -1,12 +1,17 @@
 import React from "react";
+import { useContext } from "react";
+import { createBootstrapComponent } from "react-bootstrap/esm/ThemeProvider";
+import { CartContext } from "../../context/cartContext";
+
+
 
 const CartWidget = () =>{
-    const cart =5
+    const {cartQuantity} = useContext (CartContext)
     return (
-        <div>
-<i className="bi bi-cart-check"></i>
-<span className="cart">{cart}</span>
-</div>
+<>        
+<img src="../public/img/OIP.jpg" alt="cart" width='30 rem'/>
+{cartQuantity() >0 &&  <span className="cart">{cartQuantity()}</span>}
+</>
     );
 }
 

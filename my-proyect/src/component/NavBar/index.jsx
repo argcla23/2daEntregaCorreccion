@@ -25,7 +25,7 @@ const BarraNav = () => {
               <NavDropdown.Divider />
               
               </NavDropdown>
-              <Nav.Link href="#cart"><CartWidget/></Nav.Link>
+              <NavLink style={{textDecoration: 'none'}} to='/Cart'><CartWidget/></NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
