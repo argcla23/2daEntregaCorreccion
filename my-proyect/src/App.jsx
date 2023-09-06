@@ -4,11 +4,11 @@ import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailConta
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { CartProvider } from './context/cartContext'
 import Cart from './component/cart/cart'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React, {useEffect} from 'react'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from './firebase/firebase'
 import {list} from "./mock/data";
+
 
 
 
@@ -25,14 +25,10 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path='/' element={
-      <ItemListContainer
-        texto="Bienvenido amante del automotor"/>
-      }/>
-      <Route path='/categoria/:categoriaID' element={<ItemListContainer
-        texto="Tu Seleccion"/>}/>
-      <Route path='/item/:id' element ={<ItemDetailContainer/>}/>
-       <Route path='/cart' element={<Cart/>}/>
+        <Route path='/' element={<ItemListContainer texto="Bienvenido amante del automotor"/> }/>
+        <Route path='/categoria/:categoriaID' element={<ItemListContainer texto="Tu Seleccion"/>}/>
+        <Route path='/item/:id' element ={<ItemDetailContainer/>}/>
+        <Route path='/cart' element={<Cart/>}/>
 
 
       </Routes>
@@ -41,5 +37,6 @@ function App() {
       </CartProvider>
       )
 }
+
 
 export default App

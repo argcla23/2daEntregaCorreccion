@@ -4,7 +4,7 @@ import { createContext } from "react";
 
 export const CartContext = createContext()
 
-const saveCartToLocalStorage = (cart) => {
+export const saveCartToLocalStorage = (cart) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
   

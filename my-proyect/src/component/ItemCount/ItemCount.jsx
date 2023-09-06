@@ -1,16 +1,21 @@
 import React, {useState} from "react";
-import {Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap';
+
+
+
 
 const ItemCount =({stock, onAdd}) => {
 
     const [count, setCount] = useState (0)
     const sumar = () => {
         if (count<stock) {setCount(count+1)}
+      
     }
 
     const restar = () => {
         if (count>0) {setCount(count-1)}
     }
+    
 
     return (<div className="d-flex flex-column align-items-center justify-content-between">
     <div>

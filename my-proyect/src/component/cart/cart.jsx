@@ -4,9 +4,10 @@ import { CartContext } from "../../context/cartContext";
 import CartItem from "../CartItem/CartItem";
 
 
-
 const Cart =() => {
     const{ cart , clear, total}= useContext(CartContext)
+
+    
     return (
 
         <div>
@@ -17,7 +18,7 @@ const Cart =() => {
                 <p>Total a pagar :${total()} </p>
             <div>
             <button className='btn btn-danger' onClick={clear}>Vaciar Carrito</button>
-            <Link className="btn btn-dark"> Terminar compra</Link>
+            <Link className="btn btn-dark" onClick={mostrar}> Terminar compra</Link>
             </div>
             </div>
             : <div>
