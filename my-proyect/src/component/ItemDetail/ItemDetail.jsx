@@ -14,7 +14,7 @@ const ItemDetail = ({producto}) => {
     
 
     const onAdd = (cantidad )=> {
-    console.log(`compraste ${cantidad} productos`)
+    
     setQuantityAdded(cantidad)
     addItem(producto, cantidad)
     }

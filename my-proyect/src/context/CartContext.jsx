@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createContext } from "react";
+
 
 export const CartContext = createContext()
 
+const saveCartToLocalStorage = (cart) => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+  
 
 export const CartProvider= ({children})  =>{
-    const[cart, setCart] = useState ([])
-    console.log(cart)
 
+    const[cart, setCart] = useState ([]) 
+
+    const saveCartToLocalStorage = (cart) => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+    useEffect(() => {
+        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCart(savedCart);
+      }, []);
+    
+      
+      useEffect(() => {
+        saveCartToLocalStorage(cart);
+      }, [cart]);
+    
+ 
     const addItem = (item, quantity) =>{
         if(isInCart (item.id)){
             setCart(cart.map((product)=>{
@@ -24,8 +44,10 @@ export const CartProvider= ({children})  =>{
 }
 
 
-    const clear = () => {
-        setCart=([])
+
+
+    const clear =()=> {
+        setCart([])
     }
 
     const isInCart =(id) =>{
@@ -48,3 +70,6 @@ export const CartProvider= ({children})  =>{
             {children}
         </CartContext.Provider>
     )}
+
+
+    

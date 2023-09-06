@@ -5,11 +5,20 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { CartProvider } from './context/cartContext'
 import Cart from './component/cart/cart'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useEffect} from 'react'
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from './firebase/firebase'
+import {list} from "./mock/data";
 
 
 
 
 function App() {
+
+  // useEffect(()=>{
+  //   const collectionProductos = collection (db, 'productos')
+  //   list.map((item)=>addDoc (collectionProductos, item))
+  // },[])
 
   return (
     <CartProvider>
